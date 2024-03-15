@@ -18,7 +18,7 @@ public class 수찾기 {
         long[] arr = new long[total];
         int i = 0;
         while(st.hasMoreTokens()){
-            arr[i++] = Integer.parseInt(st.nextToken());
+            arr[i++] = Long.parseLong(st.nextToken());
         }
 
         int searchTotal =  Integer.parseInt(br.readLine());
@@ -26,7 +26,7 @@ public class 수찾기 {
         long[] searchArr = new long[searchTotal];
         int j = 0;
         while(st.hasMoreTokens()){
-            searchArr[j++] = Integer.parseInt(st.nextToken());
+            searchArr[j++] = Long.parseLong(st.nextToken());
         }
         binarySearch(arr, searchArr); // 이분탐색하여 해당 숫자가 배열에 있는지 확인
 
