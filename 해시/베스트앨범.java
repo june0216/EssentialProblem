@@ -6,7 +6,7 @@ class 베스트앨범 {
         Map<String, Info> dic = new HashMap<>();
         PriorityQueue<Info> sortNum = new PriorityQueue<>();
         for(int i = 0; i < genres.length; i++){
-            if(dic.keySet().contains(genres[i])){
+            if(dic.containsKey(genres[i])){
                 Info getInfo = dic.get(genres[i]);
                 getInfo.total += plays[i];
                 getInfo.pq.offer(new Node(i, plays[i]));
@@ -54,7 +54,7 @@ class 베스트앨범 {
 
     }
 
-    class Node implements Comparable<Node>{
+    static class Node implements Comparable<Node>{
         int id;
         int num;
 
