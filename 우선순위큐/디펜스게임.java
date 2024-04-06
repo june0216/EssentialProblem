@@ -5,9 +5,6 @@ public class 디펜스게임 {
     }
     public int solution(int n, int k, int[] enemy) {
         int answer = enemy.length;
-        if(k >= enemy.length){
-            return k;
-        }
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         int card = k;
         int total = n;
