@@ -3,8 +3,6 @@ public class LIS_DP {
     public static void main(String[] args) throws Exception{
         new LIS_DP().solution(new int[]{1, 5, 6, 2});
     }
-
-    int MAX = 10000;
     int[] cache;
 
     int[] ar;
