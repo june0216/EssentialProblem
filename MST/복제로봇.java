@@ -22,7 +22,6 @@ public class 복제로봇 {
     static int[] dy = new int[]{0, 0, -1, 1};
 
     int res;
-    int keycnt;
     Map<String, Node> keyMap;
     PriorityQueue<WeightNode> pq;
     int index;
@@ -38,7 +37,6 @@ public class 복제로봇 {
 
         que = new ArrayDeque<>();
         res = 0;
-        keyList = new ArrayList<>();
 
         keyMap = new HashMap<>();
         index = 0;
@@ -59,10 +57,9 @@ public class 복제로봇 {
             parent[i] = i;
         }
 
-        keycnt = 0;
         pq = new PriorityQueue<>();
 
-       for( Map.Entry<String, Node> keyNode : keyMap.entrySet()){
+       for( Map.Entry<String, Node> keyNode : keyMap.entrySet()){ // 각 노드에서 갈 수 있는 경로들을 탐색해서 가중치 그래프를 만든다.
 
             bfs(keyNode.getValue());
         }
@@ -81,18 +78,18 @@ public class 복제로봇 {
             WeightNode cur = pq.poll();
             int fromParent = find(cur.from);
             int toParent = find(cur.to);
-            if(toParent != fromParent){
-                answer += cur.cost;
-                parent[fromParent] = toParent;
+            if(toParent != fromParent){ //사이클이 만들어지지 않는다면
+                answer += cur.cost; // 결과에 추가
+                parent[fromParent] = toParent; // union
                 connected++;
             }
 
         }
-        if(connected != K) return -1;
+        if(connected != K) return -1; // 모든 요소들이 연결되지 않는다면 -1을 반환
         return answer;
     }
 
-    public int find(int node){
+    public int find(int node){ // 부모 노드 찾기
         if(parent[node] == node) return node;
         else return parent[node] = find(parent[node]);
 
@@ -108,10 +105,10 @@ public class 복제로봇 {
                 int nx = dx[i] + cur.x;
                 int ny = dy[i] + cur.y;
                 if(nx >= 0 && ny >= 0 && nx < S && ny < S) { // 범위 안에 있는 경우
-                    if(map[ny][nx] == '1' || visited[ny][nx]){
+                    if(map[ny][nx] == '1' || visited[ny][nx]){ // 벽이나 한 번 방문한 곳이라면
                         continue;
                     }
-                    if(map[ny][nx] == 'S' || map[ny][nx] == 'K'){
+                    if(map[ny][nx] == 'S' || map[ny][nx] == 'K'){ // 노드라면
                         pq.offer(new WeightNode(s.cnt,  keyMap.get(intToString(nx, ny)).cnt ,cur.cnt+1));
 
                     }
@@ -123,11 +120,11 @@ public class 복제로봇 {
         }
     }
 
-    public String intToString(int x, int y){
+    public String intToString(int x, int y){ // 좌표가 최대 (50, 50)이므로 X + Y를 인덱스로 사용하였다.
         String result = "";
-        if(x >= 10){
+        if(x >= 10){ // 10 이상 즉 2자리라면
             result+=x;
-        }else{
+        }else{ // 1자리라면 앞에 0을 붙임
             result+= ("0" + x);
         }
         if(y >= 10){
