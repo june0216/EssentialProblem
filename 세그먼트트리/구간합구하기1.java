@@ -2,9 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 구간합구하기 {
+public class 구간합구하기1 {
     public static void main(String[] args) throws Exception{
-        new 구간합구하기().solution();
+        new 구간합구하기1().solution();
+
     }
 
     long[] tree;
