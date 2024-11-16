@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class 달팽이숫자 {
+
     public static void main(String args[]) throws Exception{
         new 달팽이숫자().solution();
     }
