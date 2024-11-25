@@ -8,8 +8,6 @@
         }
 
         List<Node>[] info;
-        int cnt;
-        boolean[] visited;
         int disCnt;
         int cost[];
         int nodeCnt;
@@ -20,7 +18,6 @@
             disCnt = Integer.parseInt(st.nextToken());
 
             info = new List[nodeCnt+1];
-            visited = new boolean[nodeCnt+1];
             for(int i = 0; i <= nodeCnt; i++){
                 info[i] = new ArrayList<>();
             }
@@ -38,7 +35,6 @@
             // 꼭 이 지점을 지나는 최단 경로 -> 간선이 많으므로 O(N^2)는 아니어야 한다.
             int nessaryOne = Integer.parseInt(st.nextToken());
             int nessaryTwo = Integer.parseInt(st.nextToken());
-            cnt = 0;
 
             // 출발 지점 -> 1번부터
             // 다시 또 지나갈 수 있다.
