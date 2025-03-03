@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class 파티 {
     public static void main(String[] args) throws Exception{
-        new 파티().solution();
+        new 파티2().solution();
     }
 
     int Target;
